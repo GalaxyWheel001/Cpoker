@@ -54,7 +54,7 @@ const PokerTable = ({
 
   const renderCard = (card, index, isDealing = false) => {
     const isMobile = window.innerWidth < 768;
-    const cardSize = isMobile ? 'w-8 h-10' : 'w-10 h-13';
+    const cardSize = isMobile ? 'w-8 h-10' : 'w-10 h-12';
     const textSize = isMobile ? 'text-xs' : 'text-sm';
     
     if (!card || card?.hidden) {
