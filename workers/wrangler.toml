@@ -1,0 +1,24 @@
+name = "poker-room-worker"
+main = "src/worker.js"
+compatibility_date = "2024-06-20"
+
+[vars]
+CORS_ORIGIN = "*"
+
+[durable_objects]
+bindings = [
+  { name = "TABLE_DO", class_name = "TableDO" }
+]
+
+[[migrations]]
+name = "v1"
+durable_objects.classes = ["TableDO"]
+
+[d1_databases]
+[[d1_databases]]
+binding = "DB"
+database_name = "poker_room_db"
+database_id = "local-poker-room-db"
+
+[observability]
+enabled = true

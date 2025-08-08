@@ -5,13 +5,10 @@ import ErrorBoundary from "components/ErrorBoundary";
 import ProtectedRoute from "components/ProtectedRoute";
 import NotFound from "pages/NotFound";
 import PokerTableGame from './pages/poker-table-game';
-import USDTDeposit from './pages/usdt-deposit';
-import TransactionHistory from './pages/transaction-history';
 import GameLobby from './pages/game-lobby';
 import UserProfileManagement from './pages/user-profile-management';
-import TelegramAuthentication from './pages/telegram-authentication';
-import TournamentsPage from './pages/tournaments';
-import DesignShowcase from './pages/design-showcase';
+import LoginPage from './pages/login';
+import RegisterPage from './pages/register';
 
 const Routes = () => {
   return (
@@ -20,10 +17,16 @@ const Routes = () => {
         <ScrollToTop />
         <RouterRoutes>
           {/* Public routes */}
-          <Route path="/telegram-authentication" element={<TelegramAuthentication />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
           
           {/* Protected routes */}
           <Route path="/" element={
+            <ProtectedRoute>
+              <GameLobby />
+            </ProtectedRoute>
+          } />
+          <Route path="/game-lobby" element={
             <ProtectedRoute>
               <GameLobby />
             </ProtectedRoute>
@@ -33,34 +36,9 @@ const Routes = () => {
               <PokerTableGame />
             </ProtectedRoute>
           } />
-          <Route path="/usdt-deposit" element={
-            <ProtectedRoute>
-              <USDTDeposit />
-            </ProtectedRoute>
-          } />
-          <Route path="/transaction-history" element={
-            <ProtectedRoute>
-              <TransactionHistory />
-            </ProtectedRoute>
-          } />
-          <Route path="/game-lobby" element={
-            <ProtectedRoute>
-              <GameLobby />
-            </ProtectedRoute>
-          } />
           <Route path="/user-profile-management" element={
             <ProtectedRoute>
               <UserProfileManagement />
-            </ProtectedRoute>
-          } />
-          <Route path="/tournaments" element={
-            <ProtectedRoute>
-              <TournamentsPage />
-            </ProtectedRoute>
-          } />
-          <Route path="/design-showcase" element={
-            <ProtectedRoute>
-              <DesignShowcase />
             </ProtectedRoute>
           } />
           

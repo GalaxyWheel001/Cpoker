@@ -3,9 +3,6 @@ import authReducer from './slices/authSlice';
 import gameReducer from './slices/gameSlice';
 import userReducer from './slices/userSlice';
 import tableReducer from './slices/tableSlice';
-import transactionReducer from './slices/transactionSlice';
-import tournamentReducer from './slices/tournamentSlice';
-import achievementReducer from './slices/achievementSlice';
 
 export const store = configureStore({
   reducer: {
@@ -13,9 +10,6 @@ export const store = configureStore({
     game: gameReducer,
     user: userReducer,
     table: tableReducer,
-    transaction: transactionReducer,
-    tournament: tournamentReducer,
-    achievement: achievementReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
